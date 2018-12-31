@@ -17,8 +17,6 @@ github.com/go-ole/go-ole/oleutil
 github.com/lxn/win
 # github.com/otiai10/gosseract v2.2.0+incompatible
 github.com/otiai10/gosseract
-# github.com/robotn/gohook v0.0.0-20181129155932-f842bde28946
-github.com/robotn/gohook
 # github.com/shirou/gopsutil v2.18.11+incompatible
 github.com/shirou/gopsutil/process
 github.com/shirou/gopsutil/cpu

@@ -62,7 +62,6 @@ import (
 	"os/exec"
 
 	"github.com/go-vgo/robotgo/clipboard"
-	"github.com/robotn/gohook"
 	"github.com/shirou/gopsutil/process"
 	"github.com/vcaesar/imgo"
 )
@@ -1184,77 +1183,6 @@ func GetImgSize(imgPath string) (int, int) {
 	FreeBitmap(bitmap)
 
 	return w, h
-}
-
-/*
- ___________    ____  _______ .__   __. .___________.
-|   ____\   \  /   / |   ____||  \ |  | |           |
-|  |__   \   \/   /  |  |__   |   \|  | `---|  |----`
-|   __|   \      /   |   __|  |  . `  |     |  |
-|  |____   \    /    |  |____ |  |\   |     |  |
-|_______|   \__/     |_______||__| \__|     |__|
-*/
-
-// AddEvent add event listener,
-//
-// parameters for the string type,
-// the keyboard corresponding key parameters,
-//
-// mouse arguments: mleft, mright, wheelDown, wheelUp,
-// wheelLeft, wheelRight.
-func AddEvent(key string) int {
-	keycode := Map{
-		"f1":  "59",
-		"f2":  "60",
-		"f3":  "61",
-		"f4":  "62",
-		"f5":  "63",
-		"f6":  "64",
-		"f7":  "65",
-		"f8":  "66",
-		"f9":  "67",
-		"f10": "68",
-		"f11": "69",
-		"f12": "70",
-		// more
-		"esc":     "11",
-		"tab":     "15",
-		"ctrl":    "29",
-		"control": "29",
-		"alt":     "56",
-		"space":   "57",
-		"shift":   "42",
-		"enter":   "28",
-		"cmd":     "3675",
-		"command": "3675",
-	}
-
-	var (
-		// cs   *C.char
-		mArr = []string{"mleft", "mright", "wheelDown",
-			"wheelUp", "wheelLeft", "wheelRight"}
-		mouseBool bool
-	)
-
-	for i := 0; i < len(mArr); i++ {
-		if key == mArr[i] {
-			mouseBool = true
-		}
-	}
-
-	if len(key) > 1 && !mouseBool {
-		key = keycode[key].(string)
-	}
-
-	geve := hook.AddEvent(key)
-	// defer C.free(unsafe.Pointer(cs))
-
-	return geve
-}
-
-// StopEvent stop event listener
-func StopEvent() {
-	hook.StopEvent()
 }
 
 /*
