@@ -1,4 +1,4 @@
-module robotgo
+module github.com/mosteknoloji/robotgo
 
 go 1.14
 
